@@ -1,33 +1,28 @@
 package com.workintech.burgercompany;
 
-public class DeluxeBurger extends Hamburger {
+public class DeluxeBurger extends Hamburger{
 
-    private String drink;
-    private String cips;
-    public DeluxeBurger(String name, String meat, String breadRollType,String drink, double price) {
-        super(name, meat, breadRollType, price);
-        this.drink = drink;
-        this.cips = "Classical";
-        price = 19.80;
+    private Drink drink;
+    private Cips cips;
+
+    public DeluxeBurger(Drink drink,Cips cips) {
+        super("DELUXE BURGER", "DOUBLE", BreadRollType.DOUBLE, 19.10);
+        this.drink =drink;
+        this.cips=cips;
     }
 
     @Override
-    public void addHamburgerAddition1() {
-        System.out.println("Ek malzeme eklenemez!");
+    public void addAddition(String name, double price) {
+        System.out.println("\nDeluxe Burger için ek malzeme eklenemez");
     }
 
     @Override
-    public void addHamburgerAddition2() {
-        System.out.println("Ek malzeme eklenemez!");
-    }
-
-    @Override
-    public void addHamburgerAddition3() {
-        System.out.println("Ek malzeme eklenemez!");
-    }
-
-    @Override
-    public void addHamburgerAddition4() {
-        System.out.println("Ek malzeme eklenemez!");
+    public void itemizeHamburger() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("DRINK: "+drink.getType()+"\n");
+        builder.append("CIPS: "+ cips.getCipsType()+"\n");
+        System.out.println(builder);
+        super.itemizeHamburger();
     }
 }
+
